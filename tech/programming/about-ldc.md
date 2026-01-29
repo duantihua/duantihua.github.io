@@ -4,3 +4,5 @@
 ldc2 -v your_program.d -link-defaultlib-shared
 ```
 可以看到最后链接时，链接了动态库(/usr/bin/cc ... -lphobos2-ldc-shared,-ldruntime-ldc-shared)
+---
+<div style="text-align: right;"><small>最后更新：2026-01-17</small></div>

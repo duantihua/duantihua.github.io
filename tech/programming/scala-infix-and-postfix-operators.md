@@ -106,6 +106,5 @@ object Http {
   }
 }
 ```
-
 ---
-<small>最后更新：2026-01-29</small>
+<div style="text-align: right;"><small>最后更新：2026-01-29</small></div>

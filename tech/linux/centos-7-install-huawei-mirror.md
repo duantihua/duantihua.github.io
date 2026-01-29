@@ -32,5 +32,5 @@ sudo yum install centos-release-scl
 但是目前这个镜像已经不能使用了。
 
 ---
-<small>最后更新：2026-01-17</small>
+<div style="text-align: right;"><small>最后更新：2026-01-17</small></div>
 

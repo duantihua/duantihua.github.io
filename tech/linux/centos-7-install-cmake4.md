@@ -30,4 +30,4 @@ Ninja 是一个快速的构建系统，由Google开发，用于管理项目的�
 sudo yum install ninja-build
 ```
 ---
-<small>最后更新：2026-01-17</small>
+<div style="text-align: right;"><small>最后更新：2026-01-17</small></div>

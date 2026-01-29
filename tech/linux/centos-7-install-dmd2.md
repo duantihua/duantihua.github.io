@@ -31,4 +31,4 @@ DFLAGS=-I/usr/local/include/d/dmd/phobos -I/usr/local/include/d/dmd/druntime -L-
 ib64 -L--export-dynamic -fPIC
 ```
 ---
-<small>最后更新：2026-01-18</small>
+<div style="text-align: right;"><small>最后更新：2026-01-18</small></div>

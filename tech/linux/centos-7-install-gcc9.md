@@ -47,4 +47,4 @@ rm -rf /opt/gcc-9.5.0
 ```
 
 ---
-<small>最后更新：2026-01-17</small>
+<div style="text-align: right;"><small>最后更新：2026-01-17</small></div>

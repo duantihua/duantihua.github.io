@@ -33,4 +33,4 @@ ninja install
 ```
 
 ---
-<small>最后更新：2026-01-18</small>
+<div style="text-align: right;"><small>最后更新：2026-01-18</small></div>
