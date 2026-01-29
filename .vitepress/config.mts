@@ -27,7 +27,8 @@ export default defineConfig({
       {
         text: 'Projects',
         items: [
-          { text: '⚒️Tech', link: '/tech' },
+          { text: '🐧Linux', link: '/tech/linux' },
+          { text: '⚒️Programming', link: '/tech/programming' },
         ]
       }
     ],
