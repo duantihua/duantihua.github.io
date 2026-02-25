@@ -8,6 +8,8 @@ ssh-keygen -t ed25519 -f ~/.ssh/ems_rsa -N "" -C "ems-server-to-server"
 chmod 600 ~/.ssh/ems_rsa*
 ## 将公钥复制到服务器
 ssh-copy-id -i ~/.ssh/ems_rsa.pub openurp@192.168.1.16
+## 手动添加服务器公钥到 known_hosts
+ssh-keyscan -H 192.168.1.16 >> ~/.ssh/known_hosts
 
 ## 测试登录
 ssh -i ~/.ssh/ems_rsa openurp@192.168.1.16

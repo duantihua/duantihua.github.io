@@ -9,6 +9,10 @@
 * [CentOS 7 安装LDC](/tech/linux/centos-7-install-ldc.md)
 * [Fedora 安装LetsEncrypt证书](/tech/linux/fedora-install-letsencrypt.md)
 * [SSH 生成公钥自动登录](/tech/linux/ssh-publickey-login.md)
+
 ## 编程语言相关
 * [LDC 编译器相关](/tech/programming/about-ldc.md)
 * [Scala 中缀和后缀操作符](/tech/programming/scala-infix-and-postfix-operators.md)
+
+## 中间件
+* [Haproxy 配置](/tech/middleware/haproxy-config.md)

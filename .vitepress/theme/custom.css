@@ -54,10 +54,14 @@
   line-height: 1.5 !important; /* 代码行间距紧凑，减少滚动 */
   padding: 1rem !important;
   border-radius: 6px !important;
+  white-space: pre-wrap !important; /* 允许代码块自动换行 */
+  word-wrap: break-word !important; /* 长单词自动换行 */
 }
 
 .vp-doc code {
   font-size: 0.9rem !important;
+  white-space: normal !important; /* 代码内容允许换行 */
+  word-break: break-all !important; /* 长单词强制换行 */
 }
 
 /* 链接颜色更醒目，hover 效果柔和 */

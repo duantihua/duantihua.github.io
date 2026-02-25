@@ -29,6 +29,7 @@ export default defineConfig({
         items: [
           { text: '🐧Linux', link: '/tech/linux' },
           { text: '⚒️Programming', link: '/tech/programming' },
+          { text: '🔧Middleware', link: '/tech/middleware' },
         ]
       }
     ],
