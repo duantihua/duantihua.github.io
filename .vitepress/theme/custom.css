@@ -60,7 +60,6 @@
 
 .vp-doc code {
   font-size: 0.9rem !important;
-  white-space: normal !important; /* 代码内容允许换行 */
   word-break: break-all !important; /* 长单词强制换行 */
 }
 
