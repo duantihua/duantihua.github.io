@@ -9,6 +9,8 @@
 * [CentOS 7 安装LDC](/tech/linux/centos-7-install-ldc.md)
 * [Fedora 安装LetsEncrypt证书](/tech/linux/fedora-install-letsencrypt.md)
 * [SSH 生成公钥自动登录](/tech/linux/ssh-publickey-login.md)
+* [二进制工具](/tech/linux/binary-tools.md)
+* [文件系统扩展属性](/tech/linux/file-system-xattr.md)
 
 ## 编程语言相关
 * [LDC 编译器相关](/tech/programming/about-ldc.md)

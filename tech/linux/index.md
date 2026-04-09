@@ -14,3 +14,4 @@
 
 ## 工具链
 * [二进制工具](/tech/linux/binary-tools.md)
+* [文件系统扩展属性](/tech/linux/file-system-xattr.md)
