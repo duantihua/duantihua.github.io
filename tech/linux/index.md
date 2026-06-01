@@ -11,6 +11,7 @@
 ## 系统配置
 * [Fedora 安装LetsEncrypt证书](/tech/linux/fedora-install-letsencrypt.md)
 * [SSH 生成公钥自动登录](/tech/linux/ssh-publickey-login.md)
+* [GNOME Boxes 虚拟机 Zed 卡死与 GPU 加速](/tech/linux/gnome-boxes-zed-gpu-acceleration.md)
 
 ## 工具链
 * [二进制工具](/tech/linux/binary-tools.md)
