@@ -1,0 +1,1 @@
+import{_ as l,c as e,o as t,ag as i}from"./chunks/framework.B4X-CZzR.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"tech/index.md","filePath":"tech/index.md"}'),r={name:"tech/index.md"};function n(h,a,o,c,m,s){return t(),e("div",null,[...a[0]||(a[0]=[i("",8)])])}const f=l(r,[["render",n]]);export{d as __pageData,f as default};
