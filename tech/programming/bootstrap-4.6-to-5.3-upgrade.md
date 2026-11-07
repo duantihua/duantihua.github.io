@@ -63,6 +63,68 @@ bootstrap.Dropdown.getOrCreateInstance(el).hide();
 `form-control`、`input-group-text`、`border-*`、`p-N`、`d-flex`、`text-muted / small / body` —— 语义未变。
 BS 5.3 的暗色主题 API `data-bs-theme="dark"` 也可以直接用。
 
+### 2.3 断点变体最容易漏：`float-sm-right` → `float-sm-end`
+
+`float-right` 好搜，但**带断点的变体是整个后缀一起换**：`float-sm-right → float-sm-end`，
+不是 `float-end-sm`，也不存在 `float-right-sm` 这种写法；`left/right` 换的是 `start/end`，
+断点位置不变。漏改时属于**静默失效** —— 类名在 BS5 里不存在，等于没写样式，
+浏览器不报错、模板渲染也不报错。
+
+典型受害元素是原本靠右浮动挤到行尾的「面包屑 / 分页 / 工具条」：
+
+```ftl
+[#-- BS4 --]
+<div class="col-sm-6">
+  <ol class="breadcrumb  float-sm-right">…</ol>
+</div>
+
+[#-- BS5 --]
+<div class="col-sm-6">
+  <ol class="breadcrumb float-sm-end">…</ol>
+</div>
+```
+
+**为什么目视容易漏**：`.breadcrumb` 在 BS5 是 `display:flex` 的块级元素，拿掉浮动后它会
+自然撑满整列，里面的 `breadcrumb-item` 仍然横排、间距也对，看上去"没坏"，只是从右贴变成了左贴。
+只有跟同一行左边的标题比对，或者量一下元素的宽度，才看得出来（见下表）。
+
+排查一行就够：
+
+```js
+getComputedStyle(document.querySelector('.breadcrumb')).float   // BS4: "right"；漏改的 BS5: "none"
+```
+
+实测（1600px 视口，`.row > .col-sm-6` 宽 792）：
+
+| 写法 | `float` | 面包屑宽 | 右边缘 |
+|---|---|---|---|
+| `float-sm-right`（漏改） | `none` | 777 | 1584.5 |
+| `float-sm-end` | `right` | 150.7 | 1584.5 |
+
+⚠️ 漏改时右边缘数值和改好之后**一模一样**（都是列右边界），因为元素被撑成了整列宽 ——
+所以"右边缘对齐"不能当判据，要看**元素宽度**和项目实际停在哪一侧。
+
+> `float-sm-*` 在 BS5 里仍在 `@media (min-width:576px)` 内，**窗口拉过 576px 才有效果**。
+> 一直用窄窗口或手机模拟调试的话，改前改后一个样，很容易误判成"改了没用"。
+> 各断点：`sm 576 / md 768 / lg 992 / xl 1200 / xxl 1400`。
+
+**分页这类 flex 组件建议改用对齐类**：`.pagination` 在 BS5 也是 `display:flex`，
+`float-right` 既失效、又和 flex 布局别扭，直接用对齐类更稳：
+
+```ftl
+[#-- BS4 --]  <ul class="pagination float-right">
+[#-- BS5 --]  <ul class="pagination justify-content-end">
+```
+
+过渡期要 BS4/BS5 双跑时，也可以在自有主题 CSS 里给旧名补别名（ems-shell 就是这么处理的）：
+
+```css
+@media (min-width: 576px) {
+  .float-sm-left { float: left !important; }
+  .float-sm-right { float: right !important; }
+}
+```
+
 ## 3. 必须改结构：只改类名不够
 
 ### 3.1 关闭按钮 `.close` → `.btn-close`
@@ -191,6 +253,8 @@ a:hover, a:focus { text-decoration: underline; }
     .list-group-item-action, .btn, .badge, .btn-close, .card-title):is(:hover, :focus) {
   text-decoration: none;
 }
+/* .btn-link 同理：BS5 写死 underline，BS4 是 none */
+.btn-link { text-decoration: none; }
 ```
 
 - 只写 `a { text-decoration: none }` 不够：`a:hover`（0,1,1）会压过 `.nav-link`（0,1,0），
@@ -198,6 +262,9 @@ a:hover, a:focus { text-decoration: underline; }
 - 别想改 CSS 变量绕过去：BS 5.3 的 `:root` 里虽然有 `--bs-link-decoration: underline`，
   但 `a` 规则写的是硬编码的 `text-decoration: underline`，**没引用这个变量**（死变量）。
 - 覆盖依赖样式表顺序：bootstrap 在前、主题 CSS 在后，同优先级后者生效。
+- **`.btn-link` 是同一个坑的另一处**：BS4 是 `.btn-link{text-decoration:none}` + `:hover` 才下划线，
+  BS5 直接改成 `text-decoration:underline`（静止态就有）。因为 `.btn` 已经在上面那条 hover 复位里，
+  只补静止态一行 `.btn-link{text-decoration:none}` 就够，不用再写 hover。
 
 ### 4.2 `.col-*` 的列宽从 `max-width` 换成 `width`
 
@@ -304,4 +371,4 @@ google-chrome --headless=new --disable-gpu --virtual-time-budget=4000 --dump-dom
   如果目标是"BS4/BS5 双跑"（灰度期），要选**两边都成立**的写法，或给主题 CSS 补别名。
 
 ---
-<div style="text-align: right;"><small>最后更新：2026-09-20</small></div>
+<div style="text-align: right;"><small>最后更新：2026-09-30</small></div>

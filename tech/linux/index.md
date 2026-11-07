@@ -7,6 +7,8 @@
 * [CentOS 7 安装LLVM20](/tech/linux/centos-7-install-llvm20.md)
 * [CentOS 7 安装DMD2](/tech/linux/centos-7-install-dmd2.md)
 * [CentOS 7 安装LDC](/tech/linux/centos-7-install-ldc.md)
+* [CentOS 8 源码编译安装 HAProxy 2.0](/tech/linux/centos-8-install-haproxy2.md)
+* [chrome-headless-shell 安装指南](/tech/linux/chrome-headless-shell-install.md)
 
 ## 系统配置
 * [Fedora 安装LetsEncrypt证书](/tech/linux/fedora-install-letsencrypt.md)
